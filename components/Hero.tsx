@@ -5,13 +5,14 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_STORE_URL, SCREENSHOTS } from "@/data/constants";
+
+// Remove unused variable check - APP_STORE_URL is now always defined
 import { cn } from "@/lib/utils";
 
 const HERO_SCREENSHOTS = SCREENSHOTS.slice(0, 3);
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const isComingSoon = !APP_STORE_URL;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -43,29 +44,22 @@ export function Hero() {
               companion—at your pace.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start animate-fade-in-up delay-200">
-              {isComingSoon ? (
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  disabled
-                  className="cursor-not-allowed"
-                >
-                  <span className="mr-2">🍎</span>
-                  Coming Soon to App Store
-                </Button>
-              ) : (
-                <Button size="lg" asChild>
-                  <a
-                    href={APP_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="mr-2">🍎</span>
-                    Download on App Store
-                  </a>
-                </Button>
-              )}
+            <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start items-center animate-fade-in-up delay-200">
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-105 active:scale-95"
+              >
+                <Image
+                  src="/assets/app-store-badge-black.svg"
+                  alt="Download on the App Store"
+                  width={160}
+                  height={54}
+                  className="h-[54px] w-auto"
+                  priority
+                />
+              </a>
 
               <Button
                 variant="outline"

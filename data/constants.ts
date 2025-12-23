@@ -1,6 +1,5 @@
-// App Store URL - Set to empty string for "Coming Soon" state
-// TODO: Replace with actual App Store URL when app is live
-export const APP_STORE_URL = "";
+// App Store URL
+export const APP_STORE_URL = "https://apps.apple.com/us/app/easemood-mood-tracker-chat/id6756807216";
 
 export const SUPPORT_EMAIL = "support@quantictechnologies.co.uk";
 export const COMPANY_NAME = "Quantic Technologies";

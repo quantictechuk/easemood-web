@@ -20,8 +20,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isComingSoon = !APP_STORE_URL;
-
   return (
     <header
       className={cn(
@@ -62,17 +60,11 @@ export function Header() {
               ))}
             </ul>
 
-            {isComingSoon ? (
-              <Button variant="secondary" disabled className="cursor-not-allowed">
-                Coming Soon
-              </Button>
-            ) : (
-              <Button asChild>
-                <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                  Download on App Store
-                </a>
-              </Button>
-            )}
+            <Button asChild>
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                Download
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,17 +95,11 @@ export function Header() {
                 ))}
               </ul>
               <div className="mt-6 pt-6 border-t border-brand-surface">
-                {isComingSoon ? (
-                  <Button variant="secondary" disabled className="w-full cursor-not-allowed">
-                    Coming Soon
-                  </Button>
-                ) : (
-                  <Button asChild className="w-full">
-                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                      Download on App Store
-                    </a>
-                  </Button>
-                )}
+                <Button asChild className="w-full">
+                  <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                    Download on App Store
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

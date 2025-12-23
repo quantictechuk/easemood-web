@@ -1,12 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { SCREENSHOTS, APP_STORE_URL } from "@/data/constants";
 
 export function ScreenshotsGallery() {
-  const isComingSoon = !APP_STORE_URL;
-
   return (
     <section id="screenshots" className="py-20 md:py-28 bg-texture">
       <div className="container-max section-padding">
@@ -46,19 +43,20 @@ export function ScreenshotsGallery() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          {isComingSoon ? (
-            <Button size="lg" variant="secondary" disabled className="cursor-not-allowed">
-              <span className="mr-2">🍎</span>
-              Coming Soon to App Store
-            </Button>
-          ) : (
-            <Button size="lg" asChild>
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <span className="mr-2">🍎</span>
-                Download on App Store
-              </a>
-            </Button>
-          )}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-transform hover:scale-105 active:scale-95"
+          >
+            <Image
+              src="/assets/app-store-badge-black.svg"
+              alt="Download on the App Store"
+              width={160}
+              height={54}
+              className="h-[54px] w-auto"
+            />
+          </a>
         </div>
       </div>
     </section>

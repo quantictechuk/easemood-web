@@ -1,11 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { APP_STORE_URL } from "@/data/constants";
 
 export function FinalCTA() {
-  const isComingSoon = !APP_STORE_URL;
-
   return (
     <section className="py-20 md:py-28 bg-brand-primary relative overflow-hidden">
       {/* Decorative elements */}
@@ -23,27 +21,20 @@ export function FinalCTA() {
             Start your journey to better self-awareness today.
           </p>
 
-          {isComingSoon ? (
-            <Button
-              size="lg"
-              className="bg-white text-brand-primary hover:bg-white/90 cursor-not-allowed"
-              disabled
-            >
-              <span className="mr-2">🍎</span>
-              Coming Soon to App Store
-            </Button>
-          ) : (
-            <Button
-              size="lg"
-              asChild
-              className="bg-white text-brand-primary hover:bg-white/90"
-            >
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                <span className="mr-2">🍎</span>
-                Download on App Store
-              </a>
-            </Button>
-          )}
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-transform hover:scale-105 active:scale-95"
+          >
+            <Image
+              src="/assets/app-store-badge-white.svg"
+              alt="Download on the App Store"
+              width={180}
+              height={60}
+              className="h-[60px] w-auto"
+            />
+          </a>
         </div>
       </div>
     </section>
